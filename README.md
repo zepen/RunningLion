@@ -152,3 +152,7 @@ p->g(); // 调用class1中的g方法
 ### 内存管理
 
 ### 字符串匹配
+
+
+### Reference
+[1][美] Adam Drozdek, Data Structures and Algorithms in C++, 4th Edition
