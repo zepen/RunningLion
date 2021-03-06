@@ -12,7 +12,7 @@
   C++的强大特性是能够在类声明中使用类型参数来声明通用类。
 ```c++
 // 定义通用类
-template<class genType, int size=50>
+template<typename genType, int size=50>
 class genClass {
   genType storage[size];
 };
@@ -21,7 +21,7 @@ genClass<int> intObject1;
 genClass<int, 100> intObject2;
 genClass<float, 123> floatObject;
 // 定义通用函数
-template<class genType>
+template<typename genType>
 void swap(genType& el1, genType& el2){
   genType tmp = el1;
   el1 = el2;
