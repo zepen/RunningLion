@@ -3,9 +3,11 @@
 
 ### C++ 基础知识
 * 1.1 抽象数据类型
+  
   抽象数据类型（ADT）是计算机科学中具有类似行为的特定类别的数据结构的数学模型。
 * 1.2 封装
-  面向对象程序设计（OOP）以对象为中心，对象用类来定义，类是一个模板，对象根据类来创建。类中定义的函数称为成员函数，类中使用的变量称为成员数据。
+  
+   面向对象程序设计（OOP）以对象为中心，对象用类来定义，类是一个模板，对象根据类来创建。类中定义的函数称为成员函数，类中使用的变量称为成员数据。
 数据及其相关操作的结合称为数据封装。对象是类的实例，是用类定义创建的实体。
   C++的强大特性是能够在类声明中使用类型参数来声明通用类。
 ```c++
@@ -27,6 +29,7 @@ void swap(genType& el1, genType& el2){
 }
 ```
 * 1.3 继承
+  
   OOL允许创建类的层次关系，所以对象不一定是单一类的实例。
 ```c++
 // 基类
@@ -81,6 +84,7 @@ double sum(double (*f)(double), int n, int m){
 } // 函数作为参数传入
 sum(f, 0 ,10); // 调用sum函数
 
+
 ```
 * 1.5 多态性
 ```c++
@@ -117,6 +121,7 @@ p->g(); // 调用class1中的g方法
 ```
 
 * 1.7 标准模板库
+  
   STL包含的容器有: vector、deque、list、forward_list、map、multimap、unordered_map、unordered_multimap、
   set、multiset、unordered_set、unordered_multiset、 stack、queue、priority_queue
 ```c++
