@@ -130,6 +130,121 @@ p->g(); // 调用class1中的g方法
 ```
 
 ### 复杂度分析
+* 1.8 大 O 表示法
+
+定义 1: 如果存在正是 c和 N, 对于所有的 n >= N, 有 f(n) <= cg(n), 则 f(n) = O(g(n))
+
+* 1.9 大 O 表示法的性质
+
+性质1: 如果 f(n) = O(g(n)), g(n) = O(h(n)), 那么 f(n) = O(h(n))
+
+性质2: 如果 f(n) = O(h(n)), g(n) = O(h(n)), 则 f(n) + g(n) = O(h(n))
+
+性质3: an^k = O(n^k)
+
+性质4: 对于任何正数 j, n^k = O(n^(k + j))
+
+性质5: 如果 f(n) = cg(n), 则 f(n) = O(g(n))
+
+性质6: 对于任意正数 a 和 b (b != 1), loga(n) = O(logb(n))
+
+性质7: 对于任何正数 a != 1, loga(n) = O(lgn), 其中 lgn = log2(n)
+
+* 2.0
+
+定义 2: 若存在正数 c 和 N, 对于所有的 n >= N, 有 f(n) >= cg(n), 则 f(n) = Ω(g(n))
+
+定义 3: 若存在正数 c1、c2 及 N, 对于所有 n >= N, 有 c1g(n) <= f(n) <= c2g(n), 则 f(n) = Θ(g(n))
+
+* 2.1 复杂度示例
+
+在每秒运行一百万次的计算机上的执行时间 (1s = 10^6 us = 10^3 ms)
+<table>
+    <tr>
+        <th colspan="1">类别</th>
+        <th colspan="1">复杂度</th>
+        <th colspan="6">操作次数和执行时间(1条指令/微秒)</th>
+    </tr>
+    <tr>
+        <th colspan="2">n</th>
+        <th colspan="1">10</th>
+        <th colspan="1">10^2</th>
+        <th colspan="1">10^3</th>
+        <th colspan="1">10^4</th>
+        <th colspan="1">10^5</th>
+        <th colspan="1">10^6</th>
+    </tr>
+    <tr>
+        <td>常数</td>
+        <td>O(1)</td>
+        <td>1us</td>
+        <td>1us</td>
+        <td>1us</td>
+        <td>1us</td>
+        <td>1us</td>
+        <td>1us</td>
+    </tr>
+    <tr>
+        <td>对数</td>
+        <td>O(1gn)</td>
+        <td>3us</td>
+        <td>7us</td>
+        <td>10us</td>
+        <td>13us</td>
+        <td>16us</td>
+        <td>20us</td>
+    </tr>
+    <tr>
+        <td>线性</td>
+        <td>O(n)</td>
+        <td>10us</td>
+        <td>100us</td>
+        <td>1ms</td>
+        <td>10ms</td>
+        <td>0.1s</td>
+        <td>1s</td>
+    </tr>
+    <tr>
+        <td>O(nlgn)</td>
+        <td>O(nlgn)</td>
+        <td>33us</td>
+        <td>664us</td>
+        <td>10ms</td>
+        <td>133ms</td>
+        <td>1.6s</td>
+        <td>20s</td>
+    </tr>
+    <tr>
+        <td>二次</td>
+        <td>O(n^2)</td>
+        <td>100us</td>
+        <td>10ms</td>
+        <td>1s</td>
+        <td>1.7m</td>
+        <td>16.7m</td>
+        <td>11.6d</td>
+    </tr>
+    <tr>
+       <td>三次</td>
+        <td>O(n^3)</td>
+        <td>1ms</td>
+        <td>1s</td>
+        <td>16.7m</td>
+        <td>11.6d</td>
+        <td>31.7y</td>
+        <td>31709y</td>
+    </tr>
+    <tr>
+        <td>指数</td>
+        <td>O(2^n)</td>
+        <td>10ms</td>
+        <td>3.17*10^7y</td>
+        <td>10^301</td>
+        <td>10^3010</td>
+        <td>10^30103</td>
+        <td>10^301030</td>
+    </tr>
+</table>
 
 ### 链表
 
