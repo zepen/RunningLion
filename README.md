@@ -246,9 +246,132 @@ p->g(); // 调用class1中的g方法
     </tr>
 </table>
 
+* 2.2 NP 完整性
+
 ### 链表
 
+* 2.3 单向链表
+
+```c++
+template<class T>
+class ListNode{
+    public:
+       ListNode(){
+           next = 0;
+       }
+       ListNode(const T &i, ListNode *in = 0){
+           info = i;
+           next = in;
+       }
+       T info;
+       ListNode *next;
+};
+```
+
+* 2.4 双向链表
+
+```c++
+template<class T>
+class DLLNode{
+    public:
+       DLLNode(){
+           next = prev = 0;
+       }
+       DLLNode(const T & e1, DLLNode *n = 0, DLLNode *p = 0){
+           info = e1;
+           next = n;
+           prev = p;
+       }
+       T info;
+       DLLNode *next, *prev;
+};
+```
+
 ### 栈与队列
+
+栈是一种线性数据结构，存储以及查找数据时只能访问栈的一端。栈类似于自助餐厅中的一叠盘子，新盘子放到这一叠盘子的最上面，取得时候也从最上面取。
+最后放上去的盘子是最先被取走的盘子。因此，栈称为后进先出(LIFO, last in/first out)结构。
+
+```c++
+#include <vector>
+
+template<class T, int capacity = 30>
+class Stack{
+    public:
+      Stack(){
+          pool.reserve(capacity);
+      }
+      void clear(){
+          pool.clear();
+      }
+      bool isEmpty() const{
+          return pool.empty();
+      }
+      T& topEL(){
+          return pool.back();
+      }
+      T pop(){
+          T e1 = pool.back();
+          pool.pop_back();
+          return e1;
+      }
+      void push(const T& e1){
+          pool.push_back(e1);
+      }
+    private:
+      vector<T> pool;
+    
+};
+```
+队列是一个简单的等待序列，在尾部加入元素时队列加长，在前端删除数据时队列缩短。与栈不同，队列是一种使用两端结构; 一端用来加入新元素，另一端用来删除元素。
+因此，最后一个元素必须等到排在它之前的所有元素都删除之后才能操作。队列是先进先出(first in/first out, FIFO)的结构。
+
+```c++
+template<class T, int size = 100>
+class ArrayQueue{
+    public:
+      ArrayQueue(){
+          first = last = -1;
+      }
+      void enqueue(T);
+      T dequeue();
+      bool isFull(){
+          return first == 0 && last == size - 1 || first == last + 1;
+      }
+      bool isEmpty(){
+          return first == -1;
+      }
+    private:
+       int first, last;
+       T atorage[size];
+};
+
+template<class T, int size>
+void ArrayQueue<T, size>::enqueue(T e1){
+    if (!isFull())
+        if (last == size - 1 || last == -1){
+            storage[0] = e1;
+            last = 0;
+            if (first == -1)
+                first = 0;
+        }
+        else storage[++last] = e1;
+    else count << "Full queue.\n";    
+}
+
+template<class T, int size>
+T ArrayQueue<T, size>::dequeue(){
+    T tmp;
+    tmp = storage[first];
+    if (first == last)
+        last = first = -1;
+    else if (first == size - 1)
+        first = 0;
+    else first++;
+    return tmp;
+}
+
+```
 
 ### 递归
 
